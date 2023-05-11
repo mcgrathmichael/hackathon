@@ -1,14 +1,10 @@
-import { useState } from "react";
-import {} from "../src/components/Fetch.jsx";
-import Search from "../src/components/Search.jsx";
-
+import SignInSide from "./components/Landing";
 import "./App.css";
+
 function App() {
   return (
     <>
-      <div>
-        <Search />
-      </div>
+      <SignInSide />
     </>
   );
 }
