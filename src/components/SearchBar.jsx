@@ -5,6 +5,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
 import { styled } from "@mui/material/styles";
 import { autocompleteClasses } from "@mui/material/Autocomplete";
+import { useState } from "react";
 
 const Root = styled("div")(
   ({ theme }) => `
@@ -159,6 +160,11 @@ const Listbox = styled("ul")(
 );
 
 export default function CustomizedHook() {
+  const [beachesSelected, setBeachesSelected] = useState();
+  const handleChange = (event, value) => {
+    setBeachesSelected(value);
+  };
+
   const {
     getRootProps,
     getInputLabelProps,
@@ -172,40 +178,45 @@ export default function CustomizedHook() {
     setAnchorEl,
   } = useAutocomplete({
     id: "customized-hook-demo",
-    defaultValue: [top100Films[1]],
+    defaultValue: [BeachesEu[1]],
     multiple: true,
-    options: top100Films,
+    options: BeachesEu,
+    onChange: handleChange,
     getOptionLabel: (option) => option.title,
   });
 
   return (
-    <Root>
-      <div {...getRootProps()}>
-        {/* <Label {...getInputLabelProps()}>What Are You Looking For ?</Label> */}
-        <InputWrapper ref={setAnchorEl} className={focused ? "focused" : ""}>
-          {value.map((option, index) => (
-            <StyledTag label={option.title} {...getTagProps({ index })} />
-          ))}
+    <div>
+      <Root>
+        <div {...getRootProps()}>
+          <Label {...getInputLabelProps()}>What Are You Looking For ?</Label>
+          <InputWrapper ref={setAnchorEl} className={focused ? "focused" : ""}>
+            {value.map((option, index) => (
+              <StyledTag label={option.title} {...getTagProps({ index })} />
+            ))}
 
-          <input {...getInputProps()} />
-        </InputWrapper>
-      </div>
-      {groupedOptions.length > 0 ? (
-        <Listbox {...getListboxProps()}>
-          {groupedOptions.map((option, index) => (
-            <li {...getOptionProps({ option, index })}>
-              <span>{option.title}</span>
-              <CheckIcon fontSize="small" />
-            </li>
-          ))}
-        </Listbox>
-      ) : null}
-    </Root>
+            <input {...getInputProps()} />
+          </InputWrapper>
+        </div>
+        {groupedOptions.length > 0 ? (
+          <Listbox {...getListboxProps()}>
+            {groupedOptions.map((option, index) => (
+              <li {...getOptionProps({ option, index })}>
+                <span>{option.title}</span>
+                <CheckIcon fontSize="small" />
+              </li>
+            ))}
+          </Listbox>
+        ) : null}
+      </Root>
+      {beachesSelected &&
+        beachesSelected.map((beach) => <img src={beach.image} />)}
+    </div>
   );
 }
 
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
-const top100Films = [
+const BeachesEu = [
   {
     title: "Porto Katsiki, Lefkada, Greece",
     image:
@@ -333,16 +344,6 @@ const top100Films = [
     title: "Navagio Beach, Zakynthos, Greece",
     image:
       "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/70/56/59.jpg",
-  },
-  {
-    title: "Myrtos Beach, Kefalonia, Greece",
-    image:
-      "https://www.discovergreece.com/sites/default/files/2019-11/facing-west-myrtos-rewards-you-with-magical-sunsets-sea-sunset-view-from-myrtos-beach-kefalonia.jpg",
-  },
-  {
-    title: "La Concha Beach, San Sebastian, Spain",
-    image:
-      "https://www.barcelo.com/guia-turismo/wp-content/uploads/2019/10/playas-de-san-sebastian.jpg",
   },
   {
     title: "Porto Katsiki Beach, Lefkada, Greece",
