@@ -1,12 +1,14 @@
 import { useState } from "react";
+import {} from "../src/components/Fetch.jsx";
+import Search from "../src/components/Search.jsx";
+
 import "./App.css";
-
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div></div>
+      <div>
+        <Search />
+      </div>
     </>
   );
 }
