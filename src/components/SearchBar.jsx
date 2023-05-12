@@ -6,6 +6,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { styled } from "@mui/material/styles";
 import { autocompleteClasses } from "@mui/material/Autocomplete";
 import { useState } from "react";
+import BeachCard from "../BeachCard";
 
 const Root = styled("div")(
   ({ theme }) => `
@@ -159,7 +160,7 @@ const Listbox = styled("ul")(
 `
 );
 
-export default function CustomizedHook() {
+export default function CustomizedHook(props) {
   const [beachesSelected, setBeachesSelected] = useState();
   const handleChange = (event, value) => {
     setBeachesSelected(value);
@@ -192,7 +193,11 @@ export default function CustomizedHook() {
           <Label {...getInputLabelProps()}>What Are You Looking For ?</Label>
           <InputWrapper ref={setAnchorEl} className={focused ? "focused" : ""}>
             {value.map((option, index) => (
-              <StyledTag label={option.title} {...getTagProps({ index })} />
+              <StyledTag
+                key={option.title}
+                label={option.title}
+                {...getTagProps({ index })}
+              />
             ))}
 
             <input {...getInputProps()} />
@@ -201,7 +206,7 @@ export default function CustomizedHook() {
         {groupedOptions.length > 0 ? (
           <Listbox {...getListboxProps()}>
             {groupedOptions.map((option, index) => (
-              <li {...getOptionProps({ option, index })}>
+              <li key={option.title} {...getOptionProps({ option, index })}>
                 <span>{option.title}</span>
                 <CheckIcon fontSize="small" />
               </li>
@@ -210,7 +215,17 @@ export default function CustomizedHook() {
         ) : null}
       </Root>
       {beachesSelected &&
-        beachesSelected.map((beach) => <img src={beach.image} />)}
+        beachesSelected.map((beach) => (
+          <BeachCard
+            key={beach.title}
+            beach={beach}
+            image={beach.image}
+            title={beach.title}
+            // beachesSelected={setBeachesSelected}
+          />
+        ))}
+      {/* {beachesSelected &&
+        beachesSelected.map((beach) => <img src={beach.image} />)} */}
     </div>
   );
 }

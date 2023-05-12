@@ -8,7 +8,8 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "./Landing.scss";
-import CustomizedHook from "./SearchBar";
+import CustomizedHook from "../components/SearchBar";
+import NavBar from "../NavBar/NavBar";
 
 export function Copyright(props) {
   return (
@@ -69,7 +70,7 @@ export default function SignInSide() {
           variant="h4"
           my={35}
           sx={{ position: "absolute", color: "white" }}>
-          What's your excuse for not being here..?
+          Whats your excuse for not being here..?
         </Typography>
         <Grid
           classname="landing_bg"
@@ -81,6 +82,8 @@ export default function SignInSide() {
           elevation={6}
           sx={{ backgroundColor: "#cb6ce6" }}
           square>
+          <NavBar />
+
           <Box
             sx={{
               my: 25,
@@ -98,13 +101,13 @@ export default function SignInSide() {
               //   onSubmit={handleSubmit}
               sx={{ mt: 1 }}>
               <CustomizedHook />
-              <Button
+              {/* <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2, backgroundColor: "#2c2c38" }}>
                 Search{" "}
-              </Button>
+              </Button> */}
               <Grid container>
                 <Grid item xs></Grid>
                 <Grid item></Grid>
