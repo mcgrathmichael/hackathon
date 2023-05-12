@@ -16,7 +16,8 @@ export function Copyright(props) {
       variant="body2"
       color="text.secondary"
       align="center"
-      {...props}>
+      {...props}
+    >
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
         Your Website
@@ -45,7 +46,8 @@ export default function SignInSide() {
         container
         component="main"
         sx={{ height: "100vh" }}
-        className="landingbg">
+        className="landingbg"
+      >
         <CssBaseline />
         <Grid
           className="image"
@@ -68,7 +70,8 @@ export default function SignInSide() {
         <Typography
           variant="h4"
           my={35}
-          sx={{ position: "absolute", color: "white" }}>
+          sx={{ position: "absolute", color: "white" }}
+        >
           What's your excuse for not being here..?
         </Typography>
         <Grid
@@ -80,7 +83,8 @@ export default function SignInSide() {
           component={Paper}
           elevation={6}
           sx={{ backgroundColor: "#cb6ce6" }}
-          square>
+          square
+        >
           <Box
             sx={{
               my: 25,
@@ -88,7 +92,8 @@ export default function SignInSide() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-            }}>
+            }}
+          >
             <Typography component="h1" variant="h4">
               Find the perfect beach for you!
             </Typography>
@@ -96,15 +101,9 @@ export default function SignInSide() {
               component="form"
               noValidate
               //   onSubmit={handleSubmit}
-              sx={{ mt: 1 }}>
+              sx={{ mt: 1 }}
+            >
               <CustomizedHook />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2, backgroundColor: "#2c2c38" }}>
-                Search{" "}
-              </Button>
               <Grid container>
                 <Grid item xs></Grid>
                 <Grid item></Grid>
