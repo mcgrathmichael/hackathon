@@ -11,23 +11,6 @@ import "./Landing.scss";
 import CustomizedHook from "../components/SearchBar";
 import NavBar from "../NavBar/NavBar";
 
-export function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}>
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
 const theme = createTheme();
 
 export default function SignInSide() {
@@ -46,7 +29,8 @@ export default function SignInSide() {
         container
         component="main"
         sx={{ height: "100vh" }}
-        className="landingbg">
+        className="landingbg"
+      >
         <CssBaseline />
         <Grid
           className="image"
@@ -58,40 +42,40 @@ export default function SignInSide() {
             backgroundImage: "url(https://wallpaperaccess.com/full/119897.jpg)",
             backgroundRepeat: "no-repeat",
             backgroundColor: "#cb6ce6",
-            // backgroundColor: (t) =>
-            //   t.palette.mode === "light"
-            //     ? t.palette.grey[50]
-            //     : t.palette.grey[900],
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         />
         <Typography
           variant="h4"
-          my={35}
-          sx={{ position: "absolute", color: "white" }}>
+          my={49}
+          sx={{ position: "absolute", color: "white", maxwidth: "50px" }}
+        >
           Whats your excuse for not being here..?
         </Typography>
         <Grid
-          classname="landing_bg"
+          className="landing_bg"
           item
           xs={12}
           sm={8}
           md={5}
           component={Paper}
           elevation={6}
-          sx={{ backgroundColor: "#cb6ce6" }}
-          square>
+          sx={{ background: "linear-gradient(to left, #d3425c, #cc6ce6bb)" }}
+          square
+        >
           <NavBar />
 
           <Box
             sx={{
-              my: 25,
+              my: 7,
               mx: 4,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-            }}>
+              overflow: "hidden",
+            }}
+          >
             <Typography component="h1" variant="h4">
               Find the perfect beach for you!
             </Typography>
@@ -99,20 +83,13 @@ export default function SignInSide() {
               component="form"
               noValidate
               //   onSubmit={handleSubmit}
-              sx={{ mt: 1 }}>
+              sx={{ mt: 7, width: "100%", maxWidth: "300px" }}
+            >
               <CustomizedHook />
-              {/* <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2, backgroundColor: "#2c2c38" }}>
-                Search{" "}
-              </Button> */}
               <Grid container>
                 <Grid item xs></Grid>
                 <Grid item></Grid>
               </Grid>
-              <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>
         </Grid>

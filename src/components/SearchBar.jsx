@@ -13,7 +13,7 @@ const Root = styled("div")(
   color: ${
     theme.palette.mode === "dark" ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,.85)"
   };
-  font-size: 14px;
+  font-size: 16px;
 `
 );
 
@@ -25,13 +25,14 @@ const Label = styled("label")`
 
 const InputWrapper = styled("div")(
   ({ theme }) => `
-  width: 300px;
   border: 1px solid ${theme.palette.mode === "dark" ? "#434343" : "#d9d9d9"};
   background-color: ${theme.palette.mode === "dark" ? "#141414" : "#fff"};
   border-radius: 15px;
   padding: 1px;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  box-shadow: 0px px 10px 0px #000000e8;
 
   &:hover {
     border-color: ${theme.palette.mode === "dark" ? "#177ddc" : "#40a9ff"};
@@ -108,7 +109,7 @@ const StyledTag = styled(Tag)(
   & svg {
     font-size: 12px;
     cursor: pointer;
-    padding: 4px;
+    padding: 2px;
   }
 `
 );
@@ -190,7 +191,6 @@ export default function CustomizedHook(props) {
     <div>
       <Root>
         <div {...getRootProps()}>
-          <Label {...getInputLabelProps()}>What Are You Looking For ?</Label>
           <InputWrapper ref={setAnchorEl} className={focused ? "focused" : ""}>
             {value.map((option, index) => (
               <StyledTag

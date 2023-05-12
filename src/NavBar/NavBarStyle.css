@@ -7,10 +7,11 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  background: linear-gradient(to right, #d3425c, #cc6ce6bb);
+  background: #5a087191;
   padding: 10px;
   z-index: 1;
   box-sizing: border-box;
+  box-shadow: -2px 13px 10px -15px #111;
 }
 .menu-logo {
   line-height: 0;

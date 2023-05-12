@@ -1,5 +1,5 @@
-import NavBar from "./NavBar/NavBar";
-import "./App.css";
+// import NavBar from "./NavBar/NavBar";
+import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./About";
 
@@ -10,7 +10,6 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        {/* <NavBar /> */}
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<About />} />
