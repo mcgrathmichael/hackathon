@@ -20,18 +20,18 @@ export default function NavBar() {
       <div class="menu">
         <ul>
           <li>
-            <a href="#home"></a>
+            <a href="#"></a>
           </li>
           <li>
-            <a href="#contact"></a>
+            <a href="#"></a>
           </li>
         </ul>
         <ul>
           <li>
-            <a href="#home">Home</a>
+            <a href="/">Home</a>
           </li>
           <li>
-            <a href="#contact">Contact</a>
+            <a href="/contact">Contact</a>
           </li>
         </ul>
       </div>
